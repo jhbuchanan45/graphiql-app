@@ -1,0 +1,42 @@
+# Maintainer: Maxwell Pray a.k.a. Synthead <synthead@gmail.com>
+
+pkgname=graphiql-app
+pkgver=0.8.0
+pkgrel=1
+pkgdesc='A light, Electron-based wrapper around GraphiQL.'
+arch=(any)
+url='https://github.com/jhbuchanan45/graphiql-app'
+license=(MIT)
+depends=(electron11)
+makedepends=(nodejs-lts-fermium yarn)
+install=graphiql-app.install
+source=(
+  https://github.com/jhbuchanan45/$pkgname/archive/v${pkgver//_/-}.tar.gz
+  graphiql-app.install
+)
+sha1sums=(
+  c47bc52d110c525f8f935a3251bf80069c1b5703
+  f5ac08c7f2653da9a44b410da439423d17df6ff5
+)
+
+prepare() {
+  cd $srcdir/$pkgname-${pkgver//_/-}
+  yarn install --dev
+}
+
+build() {
+  cd $srcdir/$pkgname-${pkgver//_/-}
+  yarn run build
+  ./node_modules/.bin/electron-builder build -l pacman
+}
+
+package() {
+  cd $srcdir/$pkgname-${pkgver//_/-}/release
+
+  tar -xf $pkgname-${pkgver//_/-}.pacman -C $pkgdir
+  find $pkgdir -maxdepth 1 -type f -delete
+
+}
+
+
+

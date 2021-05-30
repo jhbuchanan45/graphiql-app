@@ -1,7 +1,7 @@
 {
   "name": "graphiql-app",
   "productName": "GraphiQL",
-  "version": "0.8.0-alpha",
+  "version": "0.8.0",
   "description": "A light, Electron-based wrapper around GraphiQL.",
   "main": "main.js",
   "scripts": {
@@ -55,7 +55,7 @@
     "chai-as-promised": "^7.1.1",
     "css-loader": "^5.2.6",
     "del": "^6.0.0",
-    "electron": "^13.0.1",
+    "electron": "^11.0.0",
     "electron-builder": "^22.10.5",
     "electron-packager": "^15.2.0",
     "eslint-plugin-react": "^7.23.2",

@@ -14,6 +14,7 @@ pids
 lib-cov
 PKGBUILD/**
 !PKGBUILD/PKGBUILD
+!PKGBUILD/*.install
 
 # Coverage directory used by tools like istanbul
 coverage
